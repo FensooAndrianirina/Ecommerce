@@ -16,6 +16,7 @@ body {
     background-color: #343a40;
     padding-top: 25px;
     color: white;
+    margin-top: 5px;
 }
 
 .product-item {
@@ -46,4 +47,9 @@ body {
 .product-page-price,
 .product-description {
     font-size: 14px;
+}
+
+.cart-icon {
+    height: 19px;
+    padding-left: 20px;
 }
