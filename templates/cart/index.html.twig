@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Mon panier | La Boutique Française' %}
+
+{% block content %}
+    <h1>Mon panier</h1>
+
+    <p>Retrouvez l'ensemble des produits que vous avez ajoutés à votre panier</p> 
+
+    <table class="table mt-3">
+        <thead>
+            <tr>
+                <th scope="col">Produits</th>
+                <th scope="col">  </th>
+                <th scope="col">Quantité  </th>
+                <th scope="col">Prix</th>
+                <th scope="col">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% set total = null %}
+            {% for product in cart  %}
+                <tr>
+                    <td> <b>{{ product.product.name }}</b><br><small class="text-muted">{{ product.product.subtitle }} </small> </td>
+                    <td> 
+                        <img src="/uploads/{{ product.product.illustration}} " alt="{{ product.product.name }} " height="75px">
+                    </td>
+                    <td> {{ product.quantity }} </td>
+                    <td> {{ (product.product.price /100)|number_format(2, ',', '.') }} €</td>
+                    <td> {{ ((product.product.price * product.quantity) /100)|number_format(2, ',', '.') }} € </td>
+                </tr>
+                {% set total = total + (product.product.price * product.quantity ) %}
+            {% endfor %}
+        </tbody>
+    </table>     
+
+    <div class="text-right pb-4">
+        <b>Nombre de produits: {{cart|length}} </b> <br>
+        <b>Total de mon panier: {{ (total /100)|number_format(2, ',', '.') }} € </b> <br>
+        <a href="" class="btn btn-warning mt-3"> Valider mon panier </a>
+    </div>
+{% endblock %}
