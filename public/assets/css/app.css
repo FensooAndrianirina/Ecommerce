@@ -7,9 +7,39 @@
 .footer-custom {
     text-align: center;
     position: absolute;
-    margin-bottom: 0;
+    margin-bottom: 0!important;
     width: 100%;
     background-color: #343a40;
     padding-top: 25px;
     color: white;
+}
+
+.product-item {
+    margin-top: 10px;
+    padding-bottom: 20px!important;
+}
+
+.product-name {
+    text-transform: uppercase!important;
+    font-size: 15px;
+    margin-bottom: 1px;
+}
+
+.product-sub {
+    font-size: 12px;
+    display: block;
+    margin-bottom: 10px!important;
+    color: darkslategray;
+}
+
+.product-price {
+    font-size: 13px;
+    display: block;
+    margin-bottom: 10px!important;
+    color: darkslategray;
+}
+
+.product-page-price,
+.product-description {
+    font-size: 14px;
 }
