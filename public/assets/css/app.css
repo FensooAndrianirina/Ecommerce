@@ -53,3 +53,25 @@ body {
     height: 19px;
     padding-left: 20px;
 }
+
+.form-check {
+    background-color: #c2cdd76e;
+    padding: 20px 65px;
+    margin-top: 7px;
+}
+
+.col-form-label {
+    font-weight: bold;
+    margin-top: 3px;
+}
+
+.order-summary {
+    background-color: #c2cdd76e;
+    padding: 20px 65px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.recap-img {
+    border-radius: 100%;
+}
