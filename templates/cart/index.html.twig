@@ -3,7 +3,9 @@
 {% block title 'Mon panier | La Boutique Française' %}
 
 {% block content %}
-    <h1>Mon panier</h1>
+    <h1>
+        Mon panier <img src="{{ asset('assets/images/cart.jpg') }}" class="mb-1" alt="" height="65px">
+    </h1>
 
     <p>Retrouvez l'ensemble des produits que vous avez ajoutés à votre panier</p> 
     {% if cart|length > 0  %}
@@ -27,14 +29,23 @@
                             <img src="/uploads/{{ product.product.illustration}} " alt="{{ product.product.name }} " height="75px">
                         </td>
                         <td> 
-                            <span><a href="{{path('decrease_cart', {'id': product.product.id})}}">-</a></span>
-                            x{{ product.quantity }} 
-                            <span><a href="{{path('add_to_cart', {'id': product.product.id})}}">+</a></span>
+                            <a href="{{path('decrease_cart', {'id': product.product.id})}}">
+                                <img src="{{ asset('assets/images/minus.jpg') }}" alt="" height="18px">
+                            </a> 
+                            
+                            x {{ product.quantity }} 
+                         
+                            <a href="{{path('add_to_cart', {'id': product.product.id})}}">
+                                <img src="{{ asset('assets/images/plus.png') }}" alt="" height="18px"> 
+                            </a>    
                         </td>
                         <td> {{ (product.product.price /100)|number_format(2, ',', '.') }} €</td>
                         <td> {{ ((product.product.price * product.quantity) /100)|number_format(2, ',', '.') }} € </td>
-                        {# <td> <img src="{{ asset('assets/images/delete.png') }}" alt="Supprimer mon produit" height="19px"> </td> #}
-                        <td> <h3><a href="{{path('delete_cart', {'id': product.product.id})}}">X</a></h3> </td>
+                        <td> 
+                            <a href="{{path('delete_cart', {'id': product.product.id})}}">
+                                <img src="{{ asset('assets/images/trash.png') }}" alt="Supprimer mon produit" height="23px">
+                            </a> 
+                        </td>
                     </tr>
                     {% set total = total + (product.product.price * product.quantity ) %}
                 {% endfor %}

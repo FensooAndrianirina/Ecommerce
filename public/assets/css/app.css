@@ -75,3 +75,9 @@ body {
 .recap-img {
     border-radius: 100%;
 }
+
+.delivery_address,
+.delivery_address:hover {
+    text-decoration: none!important;
+    color: lightslategrey!important;
+}

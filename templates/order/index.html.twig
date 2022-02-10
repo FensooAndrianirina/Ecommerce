@@ -11,7 +11,10 @@
             {% set formHtml %}
                 {{form_start(form, {action:path('order_recap') }) }}
                     {{form_label(form.addresses, 'Choisissez votre adresse de livraison')}}
-                    <a href="{{path('account_address_add')}}" > Ajouter une adresse de livraison </a>
+                    <a href="{{path('account_address_add')}}" > 
+                        <img src="{{ asset('assets/images/8.png') }}" alt="" height="33px">
+                        <span class="ml-2 delivery_address"><small>Ajouter une adresse de livraison</small></span>
+                    </a>
                 {{form_end(form)}}
             {% endset %}
             
@@ -19,13 +22,13 @@
         </div>
         <div class="col-md-6">
             <div class="text-center">
-                <h4><b> Récap de ma commande </b></h4>
+                <h4><b> Ma commande </b></h4>
                 <p> <small>Retrouvez le récapitulatif de vos produits</small> </p>
             </div>
             <div class="order-summary">
                 {% for key,product in cart  %}
                     <div class="row {% if key > 0 %}mt-3{% endif %}">
-                        <div class="col-2">
+                        <div class="col-2 my-auto">
                             <img src="/uploads/{{ product.product.illustration}}" class="recap-img" alt="{{ product.product.name }} " height="75px">
                         </div>
                         <div class="col-8 my-auto">
