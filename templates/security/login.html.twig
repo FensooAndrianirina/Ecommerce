@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="small-block">
-    <div class="col-md-6 mx-auto pb-3">
+    <div class="col-md-6 mx-auto pt-2 pb-3">
         <form method="post">
             {% if error %}
                 <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -41,7 +41,7 @@
                 Se connecter
             </button>
             <hr>
-            <p class="text-center"> Ou souhaitez-vous <a href="{{path('register')}}"> créer un compte </a> ?</p>
+            <p class="text-center"> Ou souhaitez-vous <a href="{{path('register')}}"> créer un compte </a> ?</p> <br><br><br><br><br>
         </form>
     </div>
 </div>
