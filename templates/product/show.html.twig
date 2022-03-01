@@ -1,18 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} {{product.name}} | La Boutique Française {% endblock %}
+{% block title %} {{product.name}} | Petite Boutique {% endblock %}
 
 {% block content %}
     <div class="row">
         <div class="col-md-5">
             <img src="/uploads/{{product.illustration}}" alt="{{product.name}}" class="img-fluid">
         </div>
-        <div class="col-md-7 my-auto ">
+        <div class="pb-4 col-md-7 my-auto ">
             <h3> {{product.name}} </h3>
             <p> {{product.subtitle}} </p>
             <span class="product-page-price"><b>{{ (product.price /100)|number_format(2, ',', '.') }} € </b></sapn> <hr>
             <p class="product-description"> {{product.description}} </p>
-            <a href="{{path('add_to_cart', {'id': product.id}) }}" class="btn btn-secondary"> Ajouter au panier </a>
+            <a href= "{{path('add_to_cart', {'id': product.id}) }}" class="btn btn-secondary ajout"> Ajouter au panier </a>
         </div>
     </div>
 {% endblock %}

@@ -8,10 +8,11 @@
     <meta name="generator" content="Jekyll v4.1.1">
     <title>{% block title 'La boutique française - 100% Made in France' %}</title>
 
-    <!-- Bootstrap core CSS -->
+    <!-- Bootstrap core CSS && icon -->
+    <link href="{{ asset('assets/images/shopping-cart.png')}}" rel="icon">
     <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('assets/css/app.css')}}" rel="stylesheet">
-
+    {% block javascript %}{% endblock %}
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -34,8 +35,9 @@
 <body>
 <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="{{path('home')}}">La Boutique Française</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="{{path('home')}}">Petite Boutique</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" 
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -43,23 +45,30 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="{{path('products')}}"> Nos produits <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item ">
                     <a class="nav-link" href="#"> Qui sommes nous ? <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item ">
                      <a class="nav-link" href="#"> Contact <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
             <div class="navbar-item-custom">
-                {% if app.user %}
-                    <a href="{{path('account')}}"> 
-                        Mon compte <small>({{app.user.firstName}})</small> 
-                    </a> 
-                    | 
-                    <a href="{{path('app_logout')}}"> Déconnexion </a>
-                {% else %}
-                    <a href="{{path('app_login')}}">Connexion </a> 
-                {% endif %}
+                <ul class="navbar-nav mr-auto">
+                    {% if app.user %}
+                        <li class="nav-item">
+                            <a href="{{path('account')}}"> 
+                                Mon compte <small>({{app.user.firstName}})</small> 
+                            </a> 
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{path('app_logout')}}"> Déconnexion </a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a href="{{path('app_login')}}">Connexion </a>
+                        </li>
+                    {% endif %} 
+                </ul>      
             </div>
             <a href="{{path('cart')}}">
                 <img src="{{ asset('assets/images/shopping-cart.png') }}" class="cart-icon" alt="Mon panier" >
@@ -132,7 +141,7 @@
     <!-- FOOTER -->
     <footer class="footer-custom">
         <p>
-            &copy; 2017-2020 La Boutique Française<br>
+            &copy; 2021-2022 Petite Boutique<br>
             <small>La Boutique 100% Made in France <br>
             <a href="#">Privacy</a> &middot; <a href="#">Terms</a>
         </p>
@@ -140,6 +149,8 @@
 </main>
 {# <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> #}
 <script src="{{asset('assets/js/jquery-2.2.3.min.js')}}"></script>
+<script src="{{asset('assets/js/anim.js')}}"></script>
 <script src="{{asset('assets/js/bootstrap.bundle.js')}}"></script>
 </body>
+{% block script %} {% endblock %}
 </html>

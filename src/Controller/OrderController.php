@@ -70,7 +70,9 @@ class OrderController extends AbstractController
 
             //Enregistrer ma commande Order()
                 $order = new Order();
-
+                //Partie Livraison
+                // $reference = $date->format('dmY').'-'.uniqid();
+                // $order->setReference($reference);
                 $order->setUser($this->getUser());
                 $order->setCreatedAt($date);
                 $order->setCarrierName($carriers);
@@ -90,17 +92,32 @@ class OrderController extends AbstractController
                     $orderDetails->setQuantity($product['quantity']);
                     $orderDetails->setPrice($product['product']->getPrice());
                     $orderDetails->setTotal($product['product']->getPrice() * $product['quantity']);
-
                     $em->persist($orderDetails);
+
                 }           
 
-                $em->flush();
+                // $em->flush();
+
+            //HERE
+                //Step 1 Import Stripe : use Stripe\Stripe
+                //Stripe::setApiKey('');
+
+                //DONE ... Step 2 Checkout session
+                //$YOUR_DOMAIN = "http://127.0.0.1:8000
+                 
+                //Step 3 Let's create a session
+                //$session::create();
+                //Import : use\Checkout\Session
+                //Modification des paramètres de la méthode create()
+
         
                 return $this->render('order/add.html.twig', [
             
                     'cart' => $cart->getFull(),
                     'carrier' => $carriers,
-                    'delivery' => $delivery_content
+                    'delivery' => $delivery_content,
+                    // 'reference' => $order->getReference()
+
                 ]);
               
         }

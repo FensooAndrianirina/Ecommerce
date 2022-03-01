@@ -26,7 +26,7 @@ class DashboardController extends AbstractDashboardController
         return $this->redirect($routeBuilder->setController(OrderCrudController::class)->generateUrl());
     }
 
-    public function configureDashboard(): Dashboard
+     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
             ->setTitle('La Boutique Française');
